@@ -1,0 +1,14 @@
+/.gradle/*
+/.idea/*
+/build/*
+/sample/build/*
+/library/build/*
+/local.properties
+
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+.DS_Store
+.AppleDouble
+.LSOverride

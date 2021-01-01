@@ -1,0 +1,212 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:rsb="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/llPlayback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
+        android:orientation="vertical">
+
+        <org.florescu.android.rangeseekbar.RangeSeekBar
+            android:id="@+id/sbTrim"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_gravity="center_vertical"
+            rsb:textAboveThumbsColor="@android:color/white"
+            rsb:defaultColor="@android:color/white"
+            rsb:valuesAboveThumbs="false"
+            rsb:activeColor="@android:color/white"
+            rsb:absoluteMaxValue="100.00"
+            rsb:absoluteMinValue="0.00"
+            rsb:thumbNormal="@drawable/seek_thumb_normal_32"
+            rsb:thumbPressed="@drawable/seek_thumb_pressed_32"
+            rsb:thumbDisabled="@drawable/seek_thumb_disabled_32"
+            rsb:minLabel="start"
+            rsb:maxLabel="end"
+            rsb:activateOnDefaultValues="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/btnSRW"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/aar_ic_fast_rewind"
+                android:background="?selectableItemBackground"
+                android:scaleType="fitCenter"
+                android:padding="3dp"/>
+            <ImageButton
+                android:id="@+id/btnSFW"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/aar_ic_fast_forward"
+                android:background="?selectableItemBackground"
+                android:scaleType="fitCenter"
+                android:padding="3dp"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:visibility="visible">
+
+                <EditText
+                    android:id="@+id/edTrimFrom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:inputType="numberDecimal"
+                    android:selectAllOnFocus="true"
+                    android:text="00:00:00"
+                    android:textSize="10sp"
+                    android:enabled="false"/>
+                <TextView
+                    android:id="@+id/tvTo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:text="to"/>
+                <EditText
+                    android:id="@+id/edTrimTo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:inputType="numberDecimal"
+                    android:selectAllOnFocus="true"
+                    android:textSize="10sp"
+                    android:text="00:00:00"
+                    android:enabled="false"/>
+            </LinearLayout>
+            <ImageButton
+                android:id="@+id/btnERW"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/aar_ic_fast_rewind"
+                android:background="?selectableItemBackground"
+                android:scaleType="fitCenter"
+                android:padding="3dp"/>
+            <ImageButton
+                android:id="@+id/btnEFW"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/aar_ic_fast_forward"
+                android:background="?selectableItemBackground"
+                android:scaleType="fitCenter"
+                android:padding="3dp"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvPreview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Preview"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/ibtnPlay"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/aar_ic_play"
+                style="@style/Widget.AppCompat.Button.Borderless"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@+id/ibtnStop"
+                android:layout_toEndOf="@+id/ibtnPlay"
+                android:layout_centerVertical="true">
+
+                <SeekBar
+                    android:id="@+id/sbPlayer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"/>
+
+                <TextView
+                    android:id="@+id/tvPlayerTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/sbPlayer"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/white"
+                    android:fontFamily="sans-serif-light"
+                    android:text="00:00"/>
+
+                <TextView
+                    android:id="@+id/tvPlayerDuration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@+id/sbPlayer"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/white"
+                    android:fontFamily="sans-serif-light"
+                    android:text="00:00"/>
+
+            </RelativeLayout>
+
+            <ImageButton
+                android:id="@+id/ibtnStop"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/aar_ic_stop"
+                style="@style/Widget.AppCompat.Button.Borderless"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/ibtnCancel"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="15dp"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/aar_ic_clear"
+                style="@style/Widget.AppCompat.Button.Borderless"/>
+
+            <ImageButton
+                android:id="@+id/ibtnSave"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="15dp"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/aar_ic_check"
+                style="@style/Widget.AppCompat.Button.Borderless"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

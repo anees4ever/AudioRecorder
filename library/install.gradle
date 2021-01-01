@@ -1,0 +1,39 @@
+apply plugin: 'com.github.dcendents.android-maven'
+
+group = 'com.anees4ever'
+
+install {
+    repositories.mavenInstaller {
+        pom {
+            project {
+                packaging 'aar'
+                groupId 'com.anees4ever'
+                artifactId 'audiorecorder'
+                name 'AudioRecorder'
+                description 'Android Audio Recorder Library'
+                url 'https://github.com/anees4ever/AudioRecorder'
+
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'anees4ever'
+                        name 'Muhammed Anees C.A'
+                        email 'hello@anees4ever.com'
+                    }
+                }
+
+                scm {
+                    connection 'https://github.com/anees4ever/AudioRecorder.git'
+                    developerConnection 'https://github.com/anees4ever/AudioRecorder.git'
+                    url 'https://github.com/anees4ever/AudioRecorder'
+                }
+            }
+        }
+    }
+}
